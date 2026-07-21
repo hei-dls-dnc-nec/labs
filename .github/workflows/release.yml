@@ -16,13 +16,13 @@ jobs:
       version_changed: ${{ steps.check_version.outputs.version_changed }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Determine next version
         id: semver
-        uses: paulhatch/semantic-version@v5.4.0
+        uses: paulhatch/semantic-version@v6.0.2
         with:
           tag_prefix: "v"                   # The prefix to use to identify tags
           major_pattern: "BREAKING CHANGE"  # A string which, if present in a git commit, indicates that a change represents a major (breaking) change
@@ -56,7 +56,7 @@ jobs:
           fi
 
       - name: Generate a changelog
-        uses: orhun/git-cliff-action@v3
+        uses: orhun/git-cliff-action@v4
         with:
           config: cliff.toml
           args: --verbose --strip all --unreleased --tag ${{ env.RELEASE_VERSION }}
@@ -76,10 +76,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Typst
-        uses: typst-community/setup-typst@v4
+        uses: typst-community/setup-typst@v5
 
       - name: Build Lab Fondamentals
         run: typst compile --root ./ docs/01-fondamentals/00-main.typ docs/01-fondamentals/DLS-DNC-NEC-Fondamentals_Lab-${{ needs.version.outputs.release_version }}.pdf
@@ -102,7 +102,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
