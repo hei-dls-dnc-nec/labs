@@ -1,0 +1,136 @@
+name: Build Typst document
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+
+permissions:
+  contents: write
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      release_version: ${{ steps.set_version.outputs.release_version }}
+      version_changed: ${{ steps.check_version.outputs.version_changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine next version
+        id: semver
+        uses: paulhatch/semantic-version@v5.4.0
+        with:
+          tag_prefix: "v"                   # The prefix to use to identify tags
+          major_pattern: "BREAKING CHANGE"  # A string which, if present in a git commit, indicates that a change represents a major (breaking) change
+          minor_pattern: "feat:"            # A string which, if present in a git commit, indicates that a change represents a minor (feature) change
+          search_commit_body: true          # If true, the version will be determined using the latest tag that is reachable from the current commit
+          change_path: "docs"
+
+      - name: Set the release version
+        id: set_version
+        shell: bash
+        run: |
+          echo "RELEASE_VERSION=v${{ steps.semver.outputs.version }}" >> $GITHUB_ENV
+          echo "release_version=v${{ steps.semver.outputs.version }}" >> $GITHUB_OUTPUT
+
+      - name: Check if version has changed
+        id: check_version
+        shell: bash
+        run: |
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "Latest tag: $LATEST_TAG"
+          echo "New version: ${{ env.RELEASE_VERSION }}"
+
+          # Compare the latest tag with the new version
+          if [ "$LATEST_TAG" = "${{ env.RELEASE_VERSION }}" ]; then
+            echo "Version has not changed, skipping build and release"
+            echo "version_changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Version has changed, proceeding with build and release"
+            echo "version_changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v3
+        with:
+          config: cliff.toml
+          args: --verbose --strip all --unreleased --tag ${{ env.RELEASE_VERSION }}
+        env:
+          OUTPUT: CHANGELOG.md
+          GITHUB_REPO: ${{ github.repository }}
+
+      - name: Upload Changelog
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog
+          path: CHANGELOG.md
+
+  build:
+    needs: version
+    if: needs.version.outputs.version_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Build Lab Fondamentals
+        run: typst compile --root ./ docs/01-fondamentals/00-main.typ docs/01-fondamentals/DLS-DNC-NEC-Fondamentals_Lab-${{ needs.version.outputs.release_version }}.pdf
+
+      - name: Build Lab IoT
+        run: typst compile --root ./ docs/02-iot/00-main.typ docs/02-iot/DLS-DNC-NEC-IoT_Lab-${{ needs.version.outputs.release_version }}.pdf
+
+      - name: Build Wireshark doc
+        run: typst compile --root ./ docs/wireshark.typ docs/DLS-DNC-NEC-Wireshark-${{ needs.version.outputs.release_version }}.pdf
+
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDFs
+          path: '**/*.pdf'
+
+  release:
+    needs: [version, build]
+    if: needs.version.outputs.version_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Move build artifacts to expected location
+        run: |
+          mkdir -p output
+          find artifacts -name "DLS-DNC-NEC-*.pdf" -type f -exec cp {} output/ \;
+
+      - name: Create and push tag
+        env:
+          RELEASE_VERSION: ${{ needs.version.outputs.release_version }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a ${{ env.RELEASE_VERSION }} -m "Release ${{ env.RELEASE_VERSION }}"
+          git push origin ${{ env.RELEASE_VERSION }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        env:
+          RELEASE_VERSION: ${{ needs.version.outputs.release_version }}
+        with:
+          tag_name: ${{ env.RELEASE_VERSION }}
+          name: "${{ env.RELEASE_VERSION }}"
+          body_path: artifacts/changelog/CHANGELOG.md
+          files: ./output/DLS-DNC-NEC-*.pdf
