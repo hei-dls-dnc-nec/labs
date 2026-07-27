@@ -82,6 +82,13 @@ jobs:
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
 
+      - name: Install dependencies # Tempory because HES-SO package is not yet in the typst registry
+        # To use it with Act, we have to specify another base image. To do that we can use: 
+        # -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:rust-latest
+        run: |
+          cargo binstall --no-confirm utpm
+          utpm pkg install -n preview https://github.com/hes-so/HES-SO-package
+
       - name: Build Lab Fondamentals
         run: typst compile --root ./ docs/01-fondamentals/00-main.typ docs/01-fondamentals/DLS-DNC-NEC-Fondamentals_Lab-${{ needs.version.outputs.release_version }}.pdf
 
