@@ -60,12 +60,13 @@ jobs:
         uses: orhun/git-cliff-action@v4
         with:
           config: cliff.toml
-          args: --verbose --strip all --unreleased --tag ${{ env.RELEASE_VERSION }}
+          args: --strip all --unreleased --tag ${{ env.RELEASE_VERSION }}
         env:
           OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}
 
       - name: Upload Changelog
+        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v4
         with:
           name: changelog
@@ -99,6 +100,7 @@ jobs:
         run: typst compile --root ./ docs/wireshark.typ docs/DLS-DNC-NEC-Wireshark-${{ needs.version.outputs.release_version }}.pdf
 
       - name: Upload PDF file
+        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v4
         with:
           name: PDFs
@@ -115,16 +117,19 @@ jobs:
           fetch-depth: 0
 
       - name: Download all artifacts
+        if: ${{ !env.ACT }}
         uses: actions/download-artifact@v4
         with:
           path: artifacts
 
       - name: Move build artifacts to expected location
+        if: ${{ !env.ACT }}
         run: |
           mkdir -p output
           find artifacts -name "DLS-DNC-NEC-*.pdf" -type f -exec cp {} output/ \;
 
       - name: Create and push tag
+        if: ${{ !env.ACT }}
         env:
           RELEASE_VERSION: ${{ needs.version.outputs.release_version }}
         run: |
@@ -134,6 +139,7 @@ jobs:
           git push origin ${{ env.RELEASE_VERSION }}
 
       - name: Release
+        if: ${{ !env.ACT }}
         uses: softprops/action-gh-release@v1
         env:
           RELEASE_VERSION: ${{ needs.version.outputs.release_version }}
