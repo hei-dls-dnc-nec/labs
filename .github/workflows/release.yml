@@ -91,13 +91,19 @@ jobs:
           utpm pkg install -n preview https://github.com/hes-so/HES-SO-package
 
       - name: Build Lab Fondamentals
-        run: typst compile --root ./ docs/01-fondamentals/00-main.typ docs/01-fondamentals/DLS-DNC-NEC-Fondamentals_Lab-${{ needs.version.outputs.release_version }}.pdf
+        run: |
+          typst compile --root  ./  docs/01-homelab.typ     docs/DLS-DNC-NEC-01-homelab-${{ needs.version.outputs.release_version }}.pdf
+          typst compile --root  ./  docs/02-mac_and_nat.typ docs/DLS-DNC-NEC-02-mac_and_nat-${{ needs.version.outputs.release_version }}.pdf
+          typst compile --root  ./  docs/03-wifi.typ        docs/DLS-DNC-NEC-03-wifi-${{ needs.version.outputs.release_version }}.pdf
 
       - name: Build Lab IoT
-        run: typst compile --root ./ docs/02-iot/00-main.typ docs/02-iot/DLS-DNC-NEC-IoT_Lab-${{ needs.version.outputs.release_version }}.pdf
+        run: |
+          typst compile --root  ./  docs/04-modbus_mqtt.typ docs/DLS-DNC-NEC-04-modbus_mqtt-${{ needs.version.outputs.release_version }}.pdf
+          typst compile --root  ./  docs/05-security.typ    docs/DLS-DNC-NEC-05-security-${{ needs.version.outputs.release_version }}.pdf
+          typst compile --root  ./  docs/06-vlan.typ        docs/DLS-DNC-NEC-06-vlan-${{ needs.version.outputs.release_version }}.pdf
 
       - name: Build Wireshark doc
-        run: typst compile --root ./ docs/wireshark.typ docs/DLS-DNC-NEC-Wireshark-${{ needs.version.outputs.release_version }}.pdf
+        run: typst compile  --root  ./  docs/wireshark.typ  docs/DLS-DNC-NEC-Wireshark-${{ needs.version.outputs.release_version }}.pdf
 
       - name: Upload PDF file
         if: ${{ !env.ACT }}
@@ -126,7 +132,7 @@ jobs:
         if: ${{ !env.ACT }}
         run: |
           mkdir -p output
-          find artifacts -name "DLS-DNC-NEC-*.pdf" -type f -exec cp {} output/ \;
+          find artifacts -name "**.pdf" -type f -exec cp {} output/ \;
 
       - name: Create and push tag
         if: ${{ !env.ACT }}
@@ -147,4 +153,4 @@ jobs:
           tag_name: ${{ env.RELEASE_VERSION }}
           name: "${{ env.RELEASE_VERSION }}"
           body_path: artifacts/changelog/CHANGELOG.md
-          files: ./output/DLS-DNC-NEC-*.pdf
+          files: ./output/**.pdf
