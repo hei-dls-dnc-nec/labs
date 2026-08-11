@@ -8,3 +8,5 @@
 ]
 
 #let icon = none // image("/common/IIoT.svg", width: 24pt)
+
+#let repository-link = [https://github.com/hei-dls-dnc-nec/NEC-Lab]
