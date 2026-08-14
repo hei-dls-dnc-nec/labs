@@ -10,3 +10,4 @@
 #let icon = none // image("/common/IIoT.svg", width: 24pt)
 
 #let repository-link = [https://github.com/hei-dls-dnc-nec/NEC-Lab]
+#let wireshark-guide-link = "https://github.com/hei-dls-dnc-nec/labs/releases/latest/download/DLS-DNC-NEC-Wireshark.pdf"

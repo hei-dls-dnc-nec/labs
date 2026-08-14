@@ -19,7 +19,8 @@ This lab will provide explanation for PyCharm and uv installation. Pycharm is an
 UV is a packet manager for Python developed by Astral. It's a modern alternative to pip. It's fast, simple and easy to use. We will use it for this lab. You can find more information about uv on the official website: https://astral.sh/uv/
 
 We will also need Wireshark during this lab to capture and analyze network traffic. More information are provided on a separate document: 
-#todo[add link to Wireshark installation guide]
+#link(wireshark-guide-link)[Wireshark guide] #footnote(link(wireshark-guide-link)) <fnt:wireshark-guide-link>.
+
 
 
 #task[Install tools][
@@ -47,8 +48,8 @@ We will also need Wireshark during this lab to capture and analyze network traff
   ]
 
   #subtask[
-    Follow the installation and configuration chapter on the separate document
-    #todo[add link to Wireshark installation guide]
+    Follow the installation and configuration chapter on the separate document: 
+    #link(wireshark-guide-link)[Wireshark guide] #footnote(<fnt:wireshark-guide-link>)
   ]
 
 ]

@@ -107,7 +107,7 @@ jobs:
           typst compile --root  ./  docs/06-vlan.typ        docs/DLS-DNC-NEC-06-vlan-${{ needs.version.outputs.release_version }}.pdf
 
       - name: Build Wireshark doc
-        run: typst compile  --root  ./  docs/wireshark.typ  docs/DLS-DNC-NEC-Wireshark-${{ needs.version.outputs.release_version }}.pdf
+        run: typst compile  --root  ./  docs/wireshark.typ  docs/DLS-DNC-NEC-Wireshark.pdf
 
       - name: Upload PDF file
         if: ${{ !env.ACT }}
