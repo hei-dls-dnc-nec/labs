@@ -1,6 +1,7 @@
 #import "@preview/grape-suite:3.1.0": exercise
 #import exercise: project, task, subtask
 #import "@preview/codelst:2.0.2": sourcecode, code-frame
+#import "@preview/cheq:0.4.0": checklist
 #import "metadatas.typ": *
 
 #let hei-magenta = rgb(207, 20, 103)
@@ -63,6 +64,9 @@
     document_title = [*#course-name-short - Task #str(task_number) - #serie_title*]
 
   }
+  
+  show: checklist
+
   show: project.with(
     no: task_number,
     type: [Series],
