@@ -67,6 +67,18 @@
   
   show: checklist
 
+  show raw.where(block:false): it=>box(
+    fill: gray.lighten(30%),
+    inset: (x: 3pt, y: 0pt),
+    outset: (y: 3pt),
+    radius: 2pt,
+    text(
+      fill: black,
+      font: "JetBrainsMonoNL NFM",
+      it
+    )
+  )
+  
   show: project.with(
     no: task_number,
     type: [Series],
