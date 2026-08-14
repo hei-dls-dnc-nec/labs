@@ -1,7 +1,7 @@
 #import "/res/helpers.typ" : *
 
 #show: template.with(
-  authors: none,
+  authors: authors,
   task_number: none,
   serie_title: "Wireshark",
   pictures: image("/res/img/wireshark/icon.svg", width: 50%),
