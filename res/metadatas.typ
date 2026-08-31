@@ -16,3 +16,4 @@
 #let iiot-rack-router-user = [`miaou`]
 #let iiot-rack-router-pwd = [`<PLACEHOLDER>`]
 #let raspberry-pi-ip = [`192.168.1.4`]
+#let raspberry-pi-dns-name = [`dashboard.lan`]

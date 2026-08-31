@@ -176,39 +176,12 @@ You will then access the dashboard on the Raspberry Pi with this IP and a name.
     Show with Wireshark the `http` traffic between your laptop and the Raspberry Pi. 
   ]
 ]
-]
 
-= DNS for webpage on RPI
+#task[DNS for webpage on RPI][
+  Since you have now a fixed IP adress for the Raspberry Pi, you can now access it with a name. We already configure a DNS server on the router with a hostname for #raspberry-pi-ip. You can now acces the dashboard on the Raspberry Pi with the name #raspberry-pi-dns-name. You will now analyze the traffic with Wireshark and write a small report about it.
 
-#let wizard-dns = [
-  #figure(
-    image("../res/img/ubiquiti-router-wizard_dns.png"),
-    caption: [DNS wizard on router]
-  ) <fig:ubiquiti-router-wizard-dns>
-]
-
-
-#let txt-dns = [
-  You access the RPI dashboard with the IP address, but it would be more convenient to access it with a name.
-  You will now configure a DNS server on the router to resolve a name to the RPI IP address.
-  The Host name configuration can be done with the DNS wizard (@fig:ubiquiti-router-wizard-dns) on the router.
-]
-
-#grid(
-  columns: (2fr, 1fr),
-  column-gutter: 3em,
-  txt-dns,
-  wizard-dns
-)
-
-#task[Hostname configuration][
-  
   #subtask[
-    Add an the hostname `dashboard.lan` to the RPI IP address on the router.
-    #infobox[
-      With the wizard, you need to define an `alias`. Cou can set `rpi.lan` as alias and dashboard.lan as hostname. \
-      If you don't want to put any alias, you can set an hostname by the configuration tree. You can find the hostname configuration on the config tree under `system -> static-host-mapping -> host-name`.
-    ]
+    Verify you have acces to the dashboard as before but now with #raspberry-pi-dns-name.
   ]
 
   #subtask[
