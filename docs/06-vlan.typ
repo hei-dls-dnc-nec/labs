@@ -10,6 +10,8 @@
   ]
 )
 
+// Week 15: 3h
+
 #todo[
   VLAN for ISMA, WS not accssible by laptop
   - VLAN1: RPI, Wago

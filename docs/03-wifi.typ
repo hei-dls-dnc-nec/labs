@@ -9,6 +9,8 @@
   ]
 )
 
+// Week 10: 2h
+
 
 #todo[
   Find something we can do with wifi. Initial idea was: 

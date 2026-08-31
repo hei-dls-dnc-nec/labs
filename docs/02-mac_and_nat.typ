@@ -10,6 +10,8 @@
   ]
 )
 
+// Week 9: 2h
+
 #todo[
   [R]
   + RPI webpage accesible trough NAT (read only webpage)

@@ -10,6 +10,9 @@
   ]
 )
 
+// Week 11: 1h +
+// Week 12: 3h
+
 #todo[
   + Modbus to read bottom flow of source 2 and quality of source 2
   + Modbus to write the bottom valve of source 2

@@ -10,6 +10,8 @@
   ]
 )
 
+// Week 6: 3h
+
 
 = Setup environment
 For this lab we will you can use your personnal laptop or a the laboratory computer. We won't need a lot of different tools, but we will need an IDE and a Python packet manager. 
