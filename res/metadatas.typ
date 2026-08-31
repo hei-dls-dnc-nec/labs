@@ -11,3 +11,8 @@
 
 #let repository-link = [https://github.com/hei-dls-dnc-nec/NEC-Lab]
 #let wireshark-guide-link = "https://github.com/hei-dls-dnc-nec/labs/releases/latest/download/DLS-DNC-NEC-Wireshark.pdf"
+#let traffic-port-http = [`8050`]
+#let traffic-port-modbus = [`1502`]
+#let iiot-rack-router-user = [`miaou`]
+#let iiot-rack-router-pwd = [`<PLACEHOLDER>`]
+#let raspberry-pi-ip = [`192.168.1.4`]

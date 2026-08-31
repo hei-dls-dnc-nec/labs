@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" viewBox="702 340.5425 1038 790.9575" width="1038" height="790.9575">
+  <defs/>
+  <g id="Arbeitsfl_che_2" stroke="none" stroke-opacity="1" fill-opacity="1" fill="none" stroke-dasharray="none">
+    <title>Arbeitsfläche 2</title>
+    <g id="Arbeitsfl_che_2_Ebene_1">
+      <title>Ebene 1</title>
+      <g id="Group_30">
+        <g id="Graphic_17">
+          <rect x="757.5" y="481.25" width="898" height="91.5" fill="#929292"/>
+        </g>
+        <g id="Graphic_29">
+          <rect x="757.5" y="519.5" width="898" height="15" fill="white"/>
+        </g>
+      </g>
+      <g id="Group_26">
+        <g id="Graphic_28">
+          <rect x="789" y="1011.5" width="891.5" height="30.5" fill="#929292"/>
+        </g>
+        <g id="Graphic_27">
+          <rect x="789" y="1023" width="891.5" height="7.5" fill="#ccc"/>
+        </g>
+      </g>
+      <g id="Group_25">
+        <g id="Graphic_22">
+          <rect x="789" y="807.5" width="891.5" height="30.5" fill="#929292"/>
+        </g>
+        <g id="Graphic_24">
+          <rect x="789" y="819" width="891.5" height="7.5" fill="#ccc"/>
+        </g>
+      </g>
+      <g id="Graphic_8">
+        <path d="M 730 373.5 L 840.5 373.5 C 844.9183 373.5 848.5 377.0817 848.5 381.5 L 848.5 1103.5 C 848.5 1107.9183 844.9183 1111.5 840.5 1111.5 L 730 1111.5 C 725.5817 1111.5 722 1107.9183 722 1103.5 L 722 381.5 C 722 377.0817 725.5817 373.5 730 373.5 Z" fill="#2a2a2a"/>
+      </g>
+      <g id="Graphic_3">
+        <rect x="757.5" y="425.5" width="181.5" height="203" fill="#eee"/>
+        <rect x="757.5" y="425.5" width="181.5" height="203" stroke="#2a2a2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_4">
+        <rect x="757.5" y="473.25" width="181.5" height="107.5" fill="white"/>
+        <text transform="translate(762.5 505.48593)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="35.83" y="15">Power Supply</tspan>
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="black" x="68.33" y="38.448">24V</tspan>
+        </text>
+      </g>
+      <g id="Graphic_6">
+        <rect x="939" y="425.5" width="84.5" height="203" fill="#383939"/>
+        <rect x="939" y="425.5" width="84.5" height="203" stroke="#414141" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_5">
+        <rect x="939" y="473.25" width="84.5" height="107.5" fill="#414141"/>
+        <text transform="translate(944 508.55593)" fill="white">
+          <tspan font-family="Helvetica Neue" font-size="11" fill="white" x="2.93" y="10">Power Supply</tspan>
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="white" x="25.39" y="32.308">5V</tspan>
+        </text>
+      </g>
+      <g id="Graphic_7">
+        <path d="M 730 373.5 L 840.5 373.5 C 844.9183 373.5 848.5 377.0817 848.5 381.5 L 848.5 457 C 848.5 461.4183 844.9183 465 840.5 465 L 730 465 C 725.5817 465 722 461.4183 722 457 L 722 381.5 C 722 377.0817 725.5817 373.5 730 373.5 Z" fill="#2a2a2a"/>
+      </g>
+      <g id="Graphic_10">
+        <circle cx="785.25" cy="822.75" r="7.50001198426426" fill="#929292"/>
+        <circle cx="785.25" cy="822.75" r="7.50001198426426" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_13">
+        <rect x="1023.5" y="425.5" width="289.5" height="203" fill="#008e5d"/>
+        <rect x="1023.5" y="425.5" width="289.5" height="203" stroke="#2a2a2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_12">
+        <rect x="1023.5" y="473.25" width="289.5" height="107.5" fill="#009a64"/>
+        <text transform="translate(1028.5 505.48593)" fill="white">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="white" x="115.198" y="15">WAGO</tspan>
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="white" x="108.25" y="38.448">CC100</tspan>
+        </text>
+      </g>
+      <g id="Graphic_15">
+        <rect x="1313" y="425.5" width="84.5" height="203" fill="#00a9da"/>
+        <rect x="1313" y="425.5" width="84.5" height="203" stroke="#414141" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_14">
+        <rect x="1313" y="473.25" width="84.5" height="107.5" fill="#00b6e9"/>
+        <text transform="translate(1318 505.48593)" fill="white">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="white" x="17.842" y="15">ISMA</tspan>
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="white" x="22.81" y="38.448">I/O</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <rect x="1488" y="361.0425" width="69" height="331.91504" fill="#525353"/>
+        <rect x="1488" y="361.0425" width="69" height="331.91504" stroke="#414141" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(1510.21 687.9575) rotate(-90)" fill="white">
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="white" x="101.32752" y="20">Edge Router</tspan>
+        </text>
+      </g>
+      <g id="Graphic_18">
+        <rect x="1557" y="406" width="98.5" height="253" fill="#0072a3"/>
+        <rect x="1557" y="406" width="98.5" height="253" stroke="#414141" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(1562 498.69586)" fill="white">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="white" x="20.538" y="15">HOOC</tspan>
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="white" x="3.87" y="38.448">Connect </tspan>
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="white" x="31.47" y="63.02814">XT</tspan>
+        </text>
+      </g>
+      <g id="Graphic_21">
+        <path d="M 1663.5 365 L 1698.5 365 C 1702.9183 365 1706.5 368.58172 1706.5 373 L 1706.5 1095 C 1706.5 1099.4183 1702.9183 1103 1698.5 1103 L 1663.5 1103 C 1659.0817 1103 1655.5 1099.4183 1655.5 1095 L 1655.5 373 C 1655.5 368.58172 1659.0817 365 1663.5 365 Z" fill="#2a2a2a"/>
+      </g>
+      <g id="Graphic_31">
+        <rect x="1655.5" y="441.75" width="64" height="181.5" fill="white"/>
+        <rect x="1655.5" y="441.75" width="64" height="181.5" stroke="#2a2a2a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(1675.21 618.25) rotate(-90)" fill="#e46836">
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="#e46836" x="27.99" y="20">Flipper Zero</tspan>
+        </text>
+      </g>
+      <g id="Graphic_32">
+        <circle cx="785.25" cy="1026.75" r="7.50001198426423" fill="#929292"/>
+        <circle cx="785.25" cy="1026.75" r="7.50001198426423" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_33">
+        <circle cx="1681" cy="822.75" r="7.50001198426426" fill="#929292"/>
+        <circle cx="1681" cy="822.75" r="7.50001198426426" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_34">
+        <circle cx="1681" cy="1026.75" r="7.50001198426423" fill="#929292"/>
+        <circle cx="1681" cy="1026.75" r="7.50001198426423" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_35">
+        <circle cx="1681" cy="404.5" r="9.00001438111709" fill="#929292"/>
+        <circle cx="1681" cy="404.5" r="9.00001438111709" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_37">
+        <rect x="858" y="800.6" width="414" height="265" fill="white"/>
+        <rect x="858" y="800.6" width="414" height="265" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_38">
+        <rect x="890" y="826" width="350" height="203" fill="#333"/>
+        <rect x="890" y="826" width="350" height="203" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(895 905.9859)" fill="white">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="white" x="133.112" y="15">Raspberry</tspan>
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="20" fill="white" x="152.41" y="38.448">Pi 5</tspan>
+        </text>
+      </g>
+      <g id="Graphic_39">
+        <circle cx="873" cy="822.75" r="5.00000798950945" fill="#929292"/>
+      </g>
+      <g id="Graphic_40">
+        <circle cx="1253.5" cy="822.75" r="5.00000798950951" fill="#929292"/>
+      </g>
+      <g id="Graphic_42">
+        <circle cx="873" cy="1026.75" r="5.00000798950944" fill="#929292"/>
+      </g>
+      <g id="Graphic_41">
+        <circle cx="1253.5" cy="1026.75" r="5.0000079895095" fill="#929292"/>
+      </g>
+      <g id="Graphic_43">
+        <rect x="738.25" y="676.5" width="94" height="72.5" fill="#cf1367"/>
+        <text transform="translate(743.25 683.5538)" fill="white">
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="48" fill="white" x="25.992" y="47">X</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
