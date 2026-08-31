@@ -50,7 +50,7 @@ We will also need Wireshark during this lab to capture and analyze network traff
   ]
 
   #subtask[
-    Follow the installation and configuration chapter on the separate document: 
+    Follow the installation and configuration for modbus chapter on the separate document: 
     #link(wireshark-guide-link)[Wireshark guide] #footnote(<fnt:wireshark-guide-link>)
   ]
 
@@ -150,6 +150,21 @@ You will connect your laptop to this router, experiment dhcp and analyze local t
 #bonus[Lease time][
   Find your lease time. Show and explain and your report how you find this info. Explain what is the lease and the consequence to have a shorter / longer lease. 
 ]
+
+= Modbus traffic
+
+#task[Analyze Modbus traffic][
+  The dashboard you used previously also generate modbus traffic on port #traffic-port-modbus. You will now analyze this traffic with Wireshark.
+  
+  #subtask[
+    Keep laptop connect and the dashboard running on one of your laptop with the other connect as client. 
+  ]
+  
+  #subtask[
+    Select specific display filter to get only the modbus traffic and show in your report a query and reponse of a coil read. 
+  ]
+]
+
 = Dashboard on Raspberry Pi
 On the IIoT Rack (@fig:iiot-rack:hardware) you also have a Raspberry Pi on bottom.
 This Raspberry already run another dashboard.
