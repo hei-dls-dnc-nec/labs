@@ -34,7 +34,7 @@ You need to select the right interface for your objective.
 They are several types of interfaces: 
 - Wired interfaces (#quan(1) in @fig:wireshark:interfaces) are for physical network cards where you connect an RJ45.
   // This interface usually contain an `eth` or `en` in its name.
-- Wireless interfaces (#quan(2) in @fig:wireshark:interfaces) represent your wifi.
+- Wireless interfaces (#quan(2) in @fig:wireshark:interfaces) represent your Wi-Fi.
   // This interface usually contain a `wlan` or `wl` in its name.
 - Internal interfaces (#quan(3) in @fig:wireshark:interfaces) are for your computer's internal network stack.
   This interface usually named `Loopback`, `lo` or `Localhost`.
@@ -61,7 +61,7 @@ To verify your network card on your OS before select it on Wireshark, use the co
     Wireless or wired network card are directly indicated in the output.
   ],
   
-  v(1em),[],
+  v(1em), [],
   
   [*Linux*:],
   shell[```bash ip -a ```],
@@ -172,9 +172,3 @@ Go to `Edit` $->$ `Preferences` $->$ `Protocols` $->$ `Modbus/TCP` and add the c
   image("../res/img/wireshark/modbus-ports.png", width: 75%),
   caption: "Wireshark Modbus configuration"
 )
-
-
-// #pagebreak()
-// = Filters cheat sheet
-// #todo[
-// ]
