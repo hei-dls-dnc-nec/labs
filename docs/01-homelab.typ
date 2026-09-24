@@ -51,12 +51,14 @@ We will also need Wireshark during this lab to capture and analyse network traff
 
   #subtask[
     Follow the installation and configuration for modbus chapter on the separate document: 
-    #link(wireshark-guide-link)[Wireshark guide] #footnote(<fnt:wireshark-guide-link>)
+    #link(wireshark-guide-link)[Wireshark guide]
+    #footnote(<fnt:wireshark-guide-link>)
   ]
 
 ]
 
-Now that you have installed the required tools, you can create your repository. It will be the place where you will store your code and work during all this semester. Some parts are already done for you, but you will have to complete the missing parts. You can find the repository on the following link: 
+Now that you have installed the required tools, you can create your repository. It will be the place where you will store your code and work during all this semester. Some parts are already done for you, but you will have to complete the missing parts.
+You can find the repository on the following link: 
 #infobox(repository-link)
 
 #pagebreak()
@@ -195,6 +197,8 @@ You will then access the dashboard on the Raspberry Pi with this IP and a name.
   ]
 ]
 
+#pagebreak()
+
 #task[DNS for webpage on RPI][
   Since you now have a fixed IP address for the Raspberry Pi, you can now access it with a name. We already configure a DNS server on the router with a hostname for #raspberry-pi-ip. You can now access the dashboard on the Raspberry Pi with the name #raspberry-pi-dns-name. You will now analyse the traffic with Wireshark and write a small report about it.
 
@@ -204,6 +208,9 @@ You will then access the dashboard on the Raspberry Pi with this IP and a name.
 
   #subtask[
     Observe the DNS resolution and the traffic with Wireshark. Show and explain what you see with your words on your report.
-    #todo[add cli command to force DNS resolution on Windows and Linux: `nslookup dashboard.lan 192.168.1.1`]
+    #infobox[
+      You can force to use a specific DNS server with nslookup and avoiding to use your cache \
+      e.g.: `nslookup dashboard.lan 192.168.1.1` to force using `192.168.1.1` DNS server to resolve `sahboard.lan`.
+    ]
   ]
 ]
