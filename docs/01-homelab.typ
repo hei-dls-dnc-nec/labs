@@ -162,7 +162,11 @@ You will connect your laptop to this router, experiment DHCP and analyse local t
   The dashboard you used previously also generate modbus traffic on port #traffic-port-modbus. You will now analyse this traffic with Wireshark.
 
   #subtask[
-    Keep laptop connect and the dashboard running on one of your laptops with the other connect as client.
+    Keep both laptops connected with the dashboard running on one of your laptops.
+  ]
+
+  #subtask[
+    Start the dashboard on the other laptop, put the right ip adresse on the Modbus tab and connect to the other laptop.
   ]
 
   #subtask[
