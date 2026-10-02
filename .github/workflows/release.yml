@@ -96,15 +96,15 @@ jobs:
 
       - name: Build Lab Fondamentals
         run: |
-          typst compile --root  ./  docs/01-homelab.typ     docs/DLS-DNC-NEC-01-homelab-${{ needs.version.outputs.release_version }}.pdf
-          typst compile --root  ./  docs/02-mac_and_nat.typ docs/DLS-DNC-NEC-02-mac_and_nat-${{ needs.version.outputs.release_version }}.pdf
-          typst compile --root  ./  docs/03-wifi.typ        docs/DLS-DNC-NEC-03-wifi-${{ needs.version.outputs.release_version }}.pdf
+          typst compile --root  ./  docs/01-homelab.typ     docs/DLS-DNC-NEC-01-homelab.pdf
+          typst compile --root  ./  docs/02-mac_and_nat.typ docs/DLS-DNC-NEC-02-mac_and_nat.pdf
+          typst compile --root  ./  docs/03-wifi.typ        docs/DLS-DNC-NEC-03-wifi.pdf
 
       - name: Build Lab IoT
         run: |
-          typst compile --root  ./  docs/04-modbus_mqtt.typ docs/DLS-DNC-NEC-04-modbus_mqtt-${{ needs.version.outputs.release_version }}.pdf
-          typst compile --root  ./  docs/05-security.typ    docs/DLS-DNC-NEC-05-security-${{ needs.version.outputs.release_version }}.pdf
-          typst compile --root  ./  docs/06-vlan.typ        docs/DLS-DNC-NEC-06-vlan-${{ needs.version.outputs.release_version }}.pdf
+          typst compile --root  ./  docs/04-modbus_mqtt.typ docs/DLS-DNC-NEC-04-modbus_mqtt.pdf
+          typst compile --root  ./  docs/05-security.typ    docs/DLS-DNC-NEC-05-security.pdf
+          typst compile --root  ./  docs/06-vlan.typ        docs/DLS-DNC-NEC-06-vlan.pdf
 
       - name: Build Wireshark doc
         run: typst compile  --root  ./  docs/wireshark.typ  docs/DLS-DNC-NEC-Wireshark.pdf
