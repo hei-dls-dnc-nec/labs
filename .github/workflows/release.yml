@@ -25,11 +25,11 @@ jobs:
         id: semver
         uses: paulhatch/semantic-version@v6.0.2
         with:
-          tag_prefix: "v"                   # The prefix to use to identify tags
-          major_pattern: "BREAKING CHANGE"  # A string which, if present in a git commit, indicates that a change represents a major (breaking) change
-          minor_pattern: "feat:"            # A string which, if present in a git commit, indicates that a change represents a minor (feature) change
-          search_commit_body: true          # If true, the version will be determined using the latest tag that is reachable from the current commit
-          change_path: "docs"
+          tag_prefix: "v"                         # The prefix to use to identify tags
+          major_pattern: "/!:|BREAKING CHANGE:/"  # A string which, if present in a git commit, indicates that a change represents a major (breaking) change
+          minor_pattern: "/feat(\\(.+\\))?:/"     # A string which, if present in a git commit, indicates that a change represents a minor (feature) change
+          search_commit_body: true                # If true, the version will be determined using the latest tag that is reachable from the current commit
+          change_path: "docs res"
 
       - name: Set the release version
         id: set_version
