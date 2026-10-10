@@ -14,6 +14,6 @@
 #let traffic-port-http = [`8050`]
 #let traffic-port-modbus = [`1502`]
 #let iiot-rack-router-user = [`miaou`]
-#let iiot-rack-router-pwd = [`<PLACEHOLDER>`]
+#let iiot-rack-router-pwd = [`5f4d741ee873e003691d6409d99ab09f`]
 #let raspberry-pi-ip = [`192.168.1.4`]
 #let raspberry-pi-dns-name = [`dashboard.lan`]
