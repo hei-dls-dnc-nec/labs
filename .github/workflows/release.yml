@@ -76,9 +76,15 @@ jobs:
     needs: version
     if: needs.version.outputs.version_changed == 'true'
     runs-on: ubuntu-latest
+    env:
+      # Use only the fonts bundled in the repo so CI and local builds match
+      TYPST_FONT_PATHS: res/fonts
+      TYPST_IGNORE_SYSTEM_FONTS: true
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          lfs: true  # fonts in res/fonts are stored in Git LFS
 
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
