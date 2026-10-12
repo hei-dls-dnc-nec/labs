@@ -64,7 +64,7 @@ To verify your network card on your OS before select it on Wireshark, use the co
   v(1em), [],
   
   [*Linux*:],
-  shell[```bash ip -a ```],
+  shell[```bash ip a ```],
   grid.cell(colspan: 2)[
     Usually, wired network card contain `eth` or `en` in its name and wireless network card `wlan` or `wl`.
   ]
@@ -98,6 +98,12 @@ Same idea for filtering on port, you can use the following syntax:
 ```]
 _Example: `src port 80` filter packets from the source port 80_
 
+Without `src` or `dst`, the filter matches both directions:
+#shell[```
+  port <PORT>
+```]
+_Example: `tcp port 8050` filter TCP packets from or to port 8050 (requests and responses)_
+
 You can also combine filters with `and` and `or` operators. For example, to filter packets from a specific IP and port, you can use the following syntax:
 #shell[```
   src|dst host <IP_ADDRESS> and|or src|dst port <PORT>
@@ -125,7 +131,7 @@ _Example: `tcp src port not 22` filter TCP packets that are not from the source 
 == Display filter
 Display filter is used to limit the packets displayed by Wireshark. Specially useful to focus on specific packets and protocols. You can have more powerful filter with display filter than capture filter as you can filter on packet content. 
 
-You can again filter on IP address, port, and protocol with `ip.dest`, `ip.src`, `tcp.srcport`, `tcp.dstport`.
+You can again filter on IP address, port, and protocol with `ip.dst`, `ip.src`, `tcp.srcport`, `tcp.dstport`.
 But you can also filter on specific URL with `http.host` or on time with `frame.time`. 
 But a more interesting and powerful feature is the ability to filter on specific protocol fields. For example, you can filter on Modbus function code with `modbus.func_code` to display only Modbus with a specific function code.
 
