@@ -1,4 +1,6 @@
 #import "/res/helpers.typ" : *
+
+#import "/res/img/01-homelab/lan-setup-fig.typ": *
 #import "/res/img/01-homelab/modbus-setup-fig.typ": *
 
 #show: template.with(
@@ -33,14 +35,14 @@ We will also need Wireshark during this lab to capture and analyse network traff
 
     *MacOS / Linux:*
     #shell[```
-        curl -LsSf https://astral.sh/uv/install.sh | sh
+      curl -LsSf https://astral.sh/uv/install.sh | sh
     ```]
 
     *Windows:*
     #set text(size: 0.95em)
     #shell[```
-        powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-      ```]
+      powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+    ```]
   ]
 
   #subtask[
@@ -137,6 +139,13 @@ The router is the default gateway of this LAN. You can find its address in your 
   You will now exchange with a partner.
   One student will be the server and another the client.
   You must observe the difference with the previous task and write it down in your report.
+
+
+  #figure([
+    #lan-setup-fig
+    ],
+    caption: [LAN setup - server and client connected through the edge router]
+  ) <fig:lan:setup>
 
   #subtask[
     Connect both your laptops to the edge router with an Ethernet cable and turn off Wi-Fi for the rest of the lab. You will receive an IPv4 address by DHCP.
