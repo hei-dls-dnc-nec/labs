@@ -29,19 +29,17 @@ We will also need Wireshark during this lab to capture and analyse network traff
 
   #subtask[
     Install UV with one of the following commands depending on your operating system:
-    #set text(size: 0.75em)
-    #table(
-      columns: (1fr, 1fr),
-      stroke: none,
-      column-gutter: 1.5em,
-      [*MacOS / Linux:*], [*Windows:*],
-      shell[```
+
+    *MacOS / Linux:*
+    #shell[```
         curl -LsSf https://astral.sh/uv/install.sh | sh
-      ```],
-      shell[```
+    ```]
+
+    *Windows:*
+    #set text(size: 0.95em)
+    #shell[```
         powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
       ```]
-    )
   ]
 
   #subtask[
