@@ -1,4 +1,5 @@
 #import "/res/helpers.typ" : *
+#import "/res/img/01-homelab/modbus-setup-fig.typ": *
 
 #show: template.with(
   authors: authors,
@@ -168,16 +169,26 @@ The router is the default gateway of this LAN. You can find its address in your 
 #task[Analyse Modbus traffic][
   The dashboard you used previously also generates modbus traffic on port #traffic-port-modbus. You will now analyse this traffic with Wireshark.
 
+  #figure([
+    #modbus-setup-fig
+    ],
+    caption: [Modbus LAN setup - server and client connected through the edge router]
+  ) <fig:modbus:setup>
+
   #subtask[
-    Keep both laptops connected with the dashboard running on one of your laptops.
+    Keep both laptops connected to the Edge Router with the dashboard running on both of your laptops.
+    One laptop acts as *Modbus Server* and one as *Modbus Client*.
   ]
 
   #subtask[
-    Start the dashboard on the other laptop. In the "Modbus TCP / SCADA" tab, enter the IP address of the first laptop and port #traffic-port-modbus, then click "Apply Target". Select "FC 01 — Read Coils" as Query Target and click "Send Query" (or "Resume Master Poller").
+    Open the dashboard of the client laptop.
+    In the "Modbus TCP / SCADA" tab, enter the *IP address of the server laptop* and port #traffic-port-modbus, then click "Apply Target".
+    Select "FC 01 — Read Coils" as Query Target and click "Send Query" (or "Resume Master Poller").
   ]
 
   #subtask[
-    Select specific display filter to get only the modbus traffic and show in your report a query and response of a coil read.
+    Capture the traffic on the client laptop.
+    Select specific display filter to get only the Modbus traffic and show in your report a query and response of a coil read.
   ]
 ]
 
