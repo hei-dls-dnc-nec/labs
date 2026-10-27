@@ -65,7 +65,7 @@
     document_title = [*#course-name-short - Task #str(task_number) - #serie_title*]
 
   }
-  
+
   show: checklist
 
   show raw.where(block:false): it=>box(
@@ -79,7 +79,7 @@
       it
     )
   )
-  
+
   show: project.with(
     no: task_number,
     type: [Series],
@@ -102,9 +102,11 @@
 
     author: emph(authors),
     abstract: abstract,
+    // teacher version: typst compile --input solution=true ...
+    show-solutions: sys.inputs.at("solution", default: "false") == "true",
   )
   show link: it => text(fill:rgb("#0095d8").darken(20%), it)
-  
+
   pagebreak()
 
   body
