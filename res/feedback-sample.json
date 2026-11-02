@@ -1,0 +1,139 @@
+{
+  "version": 3,
+  "year": 2026,
+  "exercise": "Sample",
+  "student": {
+    "handle": "hmuster",
+    "first": "Hans",
+    "last": "Muster",
+    "display": "Muster Hans (hmuster)"
+  },
+  "no_submission": false,
+  "grade": "4.6",
+  "grade_max": 6,
+  "total": "15",
+  "max": 21,
+  "kinds": [
+    {
+      "name": "Tasks",
+      "points": "11",
+      "max": 16
+    },
+    {
+      "name": "Code quality",
+      "points": "4",
+      "max": 5
+    },
+    {
+      "name": "Bonus",
+      "points": "0",
+      "max": 0
+    }
+  ],
+  "formula": "Grade = 1 + 5 × (points + bonus) / 21, rounded half up to 0.1, capped at 6. The best grade is reachable without the bonus.",
+  "note": "Your submission was graded with deterministic test code (build, tests and checks run on your tagged commits) and with AI support (reviewing answers and code, drafting the feedback). Every criterion where you did not receive full points was reviewed by a member of the teaching team.",
+  "would": {
+    "points": "14",
+    "max": 16,
+    "grade": "5.3"
+  },
+  "tasks": [
+    {
+      "name": "Data Model",
+      "kind": "task",
+      "points": "6",
+      "max": 6,
+      "status": "Graded at tag `Model` (commit `1a2b3c4`).",
+      "commit": "1a2b3c4",
+      "commit_url": "https://github.com/example/sample/tree/1a2b3c4d5e6f",
+      "show_would": false,
+      "criteria": [
+        {
+          "text": "`model` is a Go module registered in `go.work`",
+          "points": "2",
+          "would": "2",
+          "max": 2,
+          "note": "[`go.work`](https://github.com/example/sample/blob/1a2b3c4/go.work) uses the module `model`"
+        },
+        {
+          "text": "The structs match the UML",
+          "points": "4",
+          "would": "4",
+          "max": 4,
+          "note": "all fields and types match"
+        }
+      ]
+    },
+    {
+      "name": "Server",
+      "kind": "task",
+      "points": "5",
+      "max": 7,
+      "status": "Graded at tag `Server` (commit `5d6e7f8`).",
+      "commit": "5d6e7f8",
+      "commit_url": "https://github.com/example/sample/tree/5d6e7f8a9b0c",
+      "show_would": false,
+      "criteria": [
+        {
+          "text": "The server answers on port `8080`",
+          "points": "3",
+          "would": "3",
+          "max": 3,
+          "note": ""
+        },
+        {
+          "text": "An invalid zone returns an error",
+          "points": "2",
+          "would": "2",
+          "max": 4,
+          "note": "The error is logged but not returned to the client:\n\n- `GetTime` prints the error\n- `response.Error` stays empty\n\nReturn it in `response.Error`.",
+          "by": "sti"
+        }
+      ],
+      "comment": "Good structure overall.\n\nSee the error handling.",
+      "comment_by": "sti"
+    },
+    {
+      "name": "Client",
+      "kind": "task",
+      "points": "0",
+      "max": 3,
+      "status": "**Tag `Client` missing → 0.** Evaluated on `main` (commit `9f8e7d6`): it would have scored 3/3.",
+      "commit": "9f8e7d6",
+      "commit_url": "https://github.com/example/sample/tree/9f8e7d6c5b4a",
+      "show_would": true,
+      "criteria": [
+        {
+          "text": "The client prints the time",
+          "points": "0",
+          "would": "3",
+          "max": 3,
+          "note": "prints `12:00:00`"
+        }
+      ]
+    },
+    {
+      "name": "Code Quality",
+      "kind": "quality",
+      "points": "4",
+      "max": 5,
+      "status": "Graded on `main` as of the deadline (commit `9f8e7d6`).",
+      "commit": "9f8e7d6",
+      "commit_url": "https://github.com/example/sample/tree/9f8e7d6c5b4a",
+      "show_would": false,
+      "criteria": [
+        {
+          "text": "Errors are handled",
+          "points": "4",
+          "would": "4",
+          "max": 5,
+          "note": "one ignored error in `server/main.go`"
+        }
+      ]
+    }
+  ],
+  "notes": "Well done overall. Two things to improve:\n\n- handle every error\n- create the tag of each task",
+  "rules": [
+    "A task without its tag scores 0."
+  ]
+}
