@@ -368,6 +368,7 @@ You will then access the dashboard on the Raspberry Pi with this IP and a name.
   #subtask[
     Find the MAC address of the Raspberry Pi and its current IP address.
     Set #raspberry-pi-ip for the Raspberry Pi through a static DHCP mapping on the router.
+    Show the MAC address, the previous IP address and the static mapping in your report.
     #infobox[
       The menu in the Ubiquiti router can be found under:\
       `Services` $->$ `DHCP Server` $->$ `Configure Static Map`
@@ -376,7 +377,7 @@ You will then access the dashboard on the Raspberry Pi with this IP and a name.
   ]
 
   #subtask[
-    Open `http://192.168.1.4:8050` in your browser and show with Wireshark the `http` traffic between your laptop and the Raspberry Pi.
+    Open `http://192.168.1.4:8050` in your browser and show in your report with Wireshark the `http` traffic between your laptop and the Raspberry Pi.
   ]
 ][][
   + Router web interface (EdgeOS v3) at `https://192.168.1.1`, the default gateway (`http://` redirects to it). Accept the self-signed certificate warning.
