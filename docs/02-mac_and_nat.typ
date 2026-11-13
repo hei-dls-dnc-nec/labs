@@ -1,4 +1,5 @@
 #import "/res/helpers.typ" : *
+#import "@preview/chronos:0.3.0"
 
 #import "/res/img/02-mac_and_nat/arp-setup-fig.typ": *
 #import "/res/img/02-mac_and_nat/nat-masquerade-fig.typ": *
@@ -144,10 +145,33 @@ In this section, you will investigate how your computer discovers the Layer 2 MA
   #subtask[
     Stop the Wireshark capture and answer the following questions in your report (illustrate with Wireshark screenshots):
 
-    - What are the MAC and IP address of the Raspberry Pi?
-    - What are your laptop's MAC and IP address?
+    - What are the MAC and IP addresses of the Raspberry Pi?
+    - What are your laptop's MAC and IP addresses?
     - What is the special MAC address `FF:FF:FF:FF:FF:FF`, and why is it used?
-    - Explain step by step the captured ARP and ICMP packet sequence (ARP Request, ARP Reply, ICMP Echo Request, ICMP Echo Reply).
+
+  ]
+
+  #subtask[
+    Explain step by step the captured ARP and ICMP packet sequence (ARP Request, ARP Reply, ICMP Echo Request, ICMP Echo Reply).
+    Draw a sequence diagram the shows the sequence of packets captured starting withe the execution of the ping command.
+    Complete the following draft:
+
+    #figure(
+      chronos.diagram({
+        import chronos: *
+        _par("user", display-name: "User", shape: "actor")
+        _par("l", display-name: "Laptop")
+        _par("rpi", display-name: "Raspberry Pi")
+        _par("edge", display-name: "Edge Router")
+
+        _seq("user", "l", comment: [`ping -c 1 192.168.1.4`], enable-dst: true)
+        _seq("l", "rpi", comment: [?], dashed: true)
+        _delay(name: [])
+        _seq("rpi", "l", comment: [?], dashed: true)
+        _seq("l", "user", comment: [ping result], disable-src: true)
+      }),
+      caption: [Draft of the sequence diagram of a single ping]
+    ) <fig:arp:sequence-draft>
   ]
 ]
 
@@ -172,15 +196,40 @@ In this section, you will investigate how your computer discovers the Layer 2 MA
   ]
 ]
 
+#task[Ping an external host][
+  You will now ping a host outside of your LAN: the public DNS server of Google, `8.8.8.8`.
+
+  #subtask[
+    Clear the ARP table and start a new Wireshark capture as in the previous tasks.
+  ]
+
+  #subtask[
+    Ping `8.8.8.8` once, stop the capture and show the ARP table.
+  ]
+
+  #subtask[
+    Answer in your report and illustrate with your capture:
+    - For which IP address does the laptop send an ARP request? Why not for `8.8.8.8`?
+    - What are the destination MAC and the destination IP address of the echo request?
+  ]
+][][]
+
 #pagebreak()
 
 = NAT — IP Masquerade
-Up to now, all communication happened inside the same local network (`192.168.1.0/24`). You will now work in pairs across two different networks separated by the EdgeRouter:
+Up to now, all communication happened inside the same local network with private addresses within `192.168.1.0/24`. You will now work in pairs across two different networks separated by the EdgeRouter:
 
 - *Laptop 1* stays connected to the *EdgeRouter LAN* (`192.168.1.0/24`).
 - *Laptop 2* connects to the *blue network* (the upstream / WAN network to which the EdgeRouter's WAN interface is connected).
 
-You will observe how the EdgeRouter translates addresses using *IP Masquerade* (Source NAT / SNAT) when a host on the private LAN initiates a connection to a host on the WAN.
+You will observe how the EdgeRouter translates addresses using *IP Masquerade* (Source NAT / SNAT) when a host on the private LAN initiates a connection to a host on the WAN, usably with pubic IP address.
+
+#infobox[
+  The blue net is itself an internal network of the school: it also uses private IP addresses, from another range than the LAN of your rack.
+  From the point of view of your rack, it plays the role of the "outside" network (WAN).
+  On its way to the Internet, a packet crosses a further NAT router of the school network.
+]
+
 
 #task[Outbound traffic through NAT][
   Laptop 2 (on the blue network / WAN) will act as the server running the SCADA dashboard from the previous lab (`main.py` on port #traffic-port-http). Laptop 1 (on the EdgeRouter LAN) will connect to it. Both laptops will capture the traffic in Wireshark and compare what each side sees.
@@ -247,7 +296,7 @@ To expose an internal service running on *Laptop 1* inside the LAN to clients on
   ]
 
   #subtask[
-    Log in to the EdgeRouter web interface (`192.168.1.1`, user #iiot-rack-router-user, password #iiot-rack-router-pwd) and configure a *Static DHCP Mapping* for *Laptop 1* like you did in the previous lab for the Raspberry Pi. This time, set the IP #laptop-ip for *Laptop 1*'s MAC address.
+    Log in to the EdgeRouter web interface and configure a *Static DHCP Mapping* for *Laptop 1* like you did in the previous lab for the Raspberry Pi. This time, set the IP #laptop-ip for *Laptop 1*'s MAC address.
 
     Unplug and replug Laptop 1's Ethernet cable so it renews its DHCP lease, and verify that Laptop 1 has received its fixed LAN IP address.
   ]
