@@ -27,10 +27,11 @@
   linux: "sudo ip neigh flush all",
 )
 
+// TODO fix hardcoded ip address
 #let single-ping = (
-  windows: "ping -n 1 #raspberry-pi-ip",
-  macos: "ping -c 1 #raspberry-pi-ip",
-  linux: "ping -c 1 #raspberry-pi-ip",
+  windows: "ping -n 1 192.168.1.4",
+  macos: "ping -c 1 192.168.1.4",
+  linux: "ping -c 1 192.168.1.4",
 )
 
 
@@ -91,11 +92,13 @@ In this section, you will investigate how your computer discovers the Layer 2 MA
     )
 
     Verify with that current ARP table is almost empty. Do you still have entry? If yes, why and what is this entry for?
+
+    // ANSWER: Only 192.168.1.1 should be there because it is the default gateway 
   ]
 
   #subtask[
     Ping once the Raspberry Pi at #raspberry-pi-ip:
-
+    
     #grid(
       columns: (1fr, 5fr),
       align: left+horizon,
@@ -133,8 +136,24 @@ In this section, you will investigate how your computer discovers the Layer 2 MA
   ]
 
   #subtask[
-    Open Wireshark, select your Ethernet LAN interface, start a new capture and apply an adapted filter. Document in your report the filter you used.
+    Open Wireshark, select your Ethernet LAN interface, start a new capture and apply an adapted filter
+    #footnote[
+      #link(wireshark-guide-link)
+    ]<fnt:wireshark-guide-link>.
+    Document in your report the filter you used.
   ]
+
+  // capture filter example: `ether host c8:a3:62:b8:64:d0`
+  // display filter example: `arp and (eth.src == c8:a3:62:b8:64:d0 or eth.src == d8:3a:dd:de:80:b7) || icmp` 
+  // 
+  // 1. Laptop → Broadcast: ARP Who has <device_IP>? Tell <laptop_IP>
+  // 2. Device → Laptop: ARP <device_IP> is at <device_MAC>
+  // Device learn the MAC address of the laptop and caches it but in STALE
+  // 3. Laptop → Device: ICMP Echo Request
+  // 4. Device → Laptop: ICMP Echo Reply
+  // 5. (~5 seconds later) Device → Laptop (Unicast): ARP Who has <laptop_IP>? Tell <device_IP> 
+  // This request is sent to STALE -> REACHABLE
+  // 6. Laptop → Device: ARP <laptop_IP> is at <laptop_MAC>
 
   #subtask[
     Send a single ICMP echo request to the Raspberry Pi
@@ -159,10 +178,10 @@ In this section, you will investigate how your computer discovers the Layer 2 MA
     #figure(
       chronos.diagram({
         import chronos: *
-        _par("user", display-name: "User", shape: "actor")
-        _par("l", display-name: "Laptop")
-        _par("rpi", display-name: "Raspberry Pi")
-        _par("edge", display-name: "Edge Router")
+        _par("user", display-name: "User", shape: "actor", show-bottom: false)
+        _par("l", display-name: "Laptop", show-bottom: false)
+        _par("rpi", display-name: "Raspberry Pi", show-bottom: false)
+        _par("edge", display-name: "Edge Router", show-bottom: false)
 
         _seq("user", "l", comment: [`ping -c 1 192.168.1.4`], enable-dst: true)
         _seq("l", "rpi", comment: [?], dashed: true)
@@ -188,7 +207,7 @@ In this section, you will investigate how your computer discovers the Layer 2 MA
   ]
 
   #subtask[
-    Immediately execute a second single ping *without* clearing the ARP table in between.
+    After 5-10s, execute a second single ping *without* clearing the ARP table in between.
   ]
 
   #subtask[
@@ -336,7 +355,7 @@ To expose an internal service running on *Laptop 1* inside the LAN to clients on
   ]
 
   #subtask[
-    In your report, include a screenshot of your EdgeRouter Port Forwarding configuration and explain the role of each field: `WAN interface`, `LAN interface`, `Original port`, `Forward-to address`, `Forward-to port` and `Auto firewall`.
+    In your report, include a screenshot of your EdgeRouter Port Forwarding configuration and explain the role of each field: `WAN interface`, `LAN interface`, `Original port`, `Forward-to address` and `Forward-to port`.
   ]
 ]
 

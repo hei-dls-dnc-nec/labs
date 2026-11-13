@@ -107,6 +107,8 @@
   )
   show link: it => text(fill:rgb("#0095d8").darken(20%), it)
 
+  show list: set par(justify: false)
+
   pagebreak()
 
   body
