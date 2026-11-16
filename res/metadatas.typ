@@ -17,3 +17,4 @@
 #let iiot-rack-router-pwd = [`5f4d741ee873e003691d6409d99ab09f`]
 #let raspberry-pi-ip = [`192.168.1.4`]
 #let raspberry-pi-dns-name = [`dashboard.lan`]
+#let laptop-ip = [`192.168.1.100`]
